@@ -131,6 +131,18 @@ const Footer = () => {
       <div className="footer-cta">
         <h2>Let&apos;s build something useful, sharp, and AI-aware.</h2>
         <p>Currently building AI-powered products and open to impactful engineering opportunities.</p>
+        <div className="mobile-footer-actions">
+          <a className="interactive" href={`mailto:${'lakshayoberoi1911'}@${'gmail.com'}`}>
+            Email me
+          </a>
+          <a
+            className="interactive"
+            href="/Lakshay_Oberoi_Resume.pdf"
+            download="Lakshay_Oberoi_Resume.pdf"
+          >
+            Resume ↓
+          </a>
+        </div>
         <ContactForm />
       </div>
 

@@ -137,8 +137,8 @@ const About = () => {
           <div className="section-eyebrow">Lakshay OS</div>
           <h2>Every feature has a path from action to intelligence.</h2>
           <p>
-            This is the portfolio&apos;s core metaphor: product UI, backend APIs, model logic,
-            and output design moving as one system instead of separate resume bullets.
+            I connect polished interfaces, reliable APIs, and AI workflows into product experiences
+            that feel clear from the first interaction.
           </p>
         </div>
         <div className="os-flow-panel">

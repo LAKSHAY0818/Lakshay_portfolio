@@ -108,7 +108,7 @@ const projects = [
   },
 ];
 
-const previewCards = ['Resume.pdf', 'JD vector', 'Score 87%', 'Shortlist'];
+const previewCards = ['Resume intake', 'Role match', 'AI score', 'Shortlist'];
 
 const WorkbookPreview = () => (
   <motion.a
@@ -293,11 +293,7 @@ const Work = () => {
 
         <div className="project-showcase-copy">
           <div className="section-eyebrow">Shipped Work</div>
-          <h2>Real websites, product platforms, and private app work - not just portfolio cards.</h2>
-          <p>
-            This section is built like a work log: public links where the work is live,
-            private previews where the product cannot be opened, and the exact role I played.
-          </p>
+          <h2>Real websites, product platforms, and private app work.</h2>
         </div>
       </div>
 
@@ -305,12 +301,8 @@ const Work = () => {
         <div className="section-kicker-row">
           <div>
             <div className="section-eyebrow">Proof of Work</div>
-            <h2>Production work people can actually inspect.</h2>
+            <h2>Production work with real outcomes.</h2>
           </div>
-          <p>
-            Public websites get live links. Private product work gets a production-preview treatment
-            so the proof stays useful without exposing client or platform details.
-          </p>
         </div>
         <div className="shipped-list">
           {shippedWork.map((item, index) => (
@@ -323,12 +315,8 @@ const Work = () => {
         <div className="section-kicker-row technical-builds-header">
           <div>
             <div className="section-eyebrow">Technical Builds</div>
-            <h2>Extra builds that show the systems behind the craft.</h2>
+            <h2>Technical builds across AI, APIs, and product workflows.</h2>
           </div>
-          <p>
-            These stay as supporting projects: AI workflows, NLP services, and full-stack patterns
-            that explain the technical range behind the shipped work.
-          </p>
         </div>
         {projects.map((project) => (
           <motion.article

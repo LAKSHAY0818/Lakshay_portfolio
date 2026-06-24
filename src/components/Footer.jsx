@@ -129,6 +129,9 @@ const Footer = () => {
       </div>
 
       <div className="footer-cta">
+        <div className="mobile-footer-visual" aria-hidden="true">
+          <img src="/og-image.png" alt="" />
+        </div>
         <h2>Let&apos;s build something useful, sharp, and AI-aware.</h2>
         <p>Currently building AI-powered products and open to impactful engineering opportunities.</p>
         <div className="mobile-footer-actions">

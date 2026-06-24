@@ -1,5 +1,70 @@
 import { motion } from 'framer-motion';
 
+const shippedWork = [
+  {
+    number: '01',
+    title: 'Aagati',
+    eyebrow: 'Public production work',
+    type: 'Company website',
+    url: 'https://aagati.com/',
+    proof: 'Visit live site',
+    visual: 'aagati',
+    description:
+      'Single owner for the public Aagati website - building, maintaining, updating, and deploying the homepage, careers, service pages, and business-facing sections.',
+    impact:
+      'Improved public-facing brand quality, usability, and business presentation across the company site.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'Animations', 'Deployment'],
+  },
+  {
+    number: '02',
+    title: 'TalentSkout Website',
+    eyebrow: 'Aagati product',
+    type: 'Product website',
+    url: 'https://talentskout.ai/',
+    proof: 'Visit live site',
+    visual: 'talentskout',
+    description:
+      'Owned the public product website experience for TalentSkout with responsive pages, content updates, visual polish, animations, and deployment support.',
+    impact:
+      'Helped present the product as a clearer, more credible AI pre-screening platform for business users and partners.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'Animations', 'Responsive UI'],
+  },
+  {
+    number: '03',
+    title: 'TalentSkout Platform',
+    eyebrow: 'Private production preview',
+    type: 'AI pre-screening platform',
+    visual: 'platform',
+    description:
+      'Worked on the live platform across recruiter workflows and TS Pathfinder, the student-facing product experience.',
+    impact:
+      'Beta-tested with colleges and built for large-scale student pre-screening and career-readiness workflows.',
+    stack: ['React', 'Tailwind CSS', 'Redux', 'Python', 'FastAPI', 'LLM wrappers', 'Security'],
+    flows: [
+      {
+        title: 'Recruiter Platform',
+        copy: 'Pre-screening dashboards, candidate review, resume/job matching, pipeline states, and AI-assisted evaluation.',
+      },
+      {
+        title: 'TS Pathfinder',
+        copy: 'Registration, secure login, profiles, AI mock interviews, coding assessments, AI feedback, counselor workflow, and resume builder.',
+      },
+    ],
+  },
+  {
+    number: '04',
+    title: 'Confidential Wellness Suite',
+    eyebrow: 'Client ecosystem',
+    type: 'Website + mobile app + web app',
+    visual: 'confidential',
+    description:
+      'Built a public consumer-facing website from Figma with a teammate and contributed to the private mobile app and web app product work before launch.',
+    impact:
+      'Supported a client product ecosystem across marketing, app, and web product surfaces while keeping the client identity private.',
+    stack: ['React', 'JavaScript', 'HTML', 'CSS', 'Figma to UI', 'Private app work'],
+  },
+];
+
 const projects = [
   {
     number: '01',
@@ -45,6 +110,112 @@ const projects = [
 
 const previewCards = ['Resume.pdf', 'JD vector', 'Score 87%', 'Shortlist'];
 
+const WorkbookPreview = () => (
+  <motion.a
+    className="workbook-card interactive"
+    href="#shipped-work"
+    aria-label="Open shipped work"
+    whileHover={{ y: -8, rotate: -1.2 }}
+    whileTap={{ scale: 0.98 }}
+  >
+    <div className="workbook-papers" aria-hidden="true">
+      <span />
+      <span />
+      <span />
+    </div>
+    <div className="workbook-folder-front">
+      <span className="workbook-label">Portfolio</span>
+      <div className="workbook-mark" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+      </div>
+    </div>
+    <div className="workbook-pages" aria-hidden="true">
+      <span />
+      <span />
+      <span />
+    </div>
+  </motion.a>
+);
+
+const ProofVisual = ({ item }) => (
+  <div className={`proof-visual proof-visual-${item.visual}`} aria-hidden="true">
+    <div className="proof-browser-bar">
+      <span />
+      <span />
+      <span />
+      <em>{item.url ? new URL(item.url).hostname : item.eyebrow}</em>
+    </div>
+    <div className="proof-screen">
+      <div className="proof-brand-row">
+        <strong>{item.title}</strong>
+        <small>{item.type}</small>
+      </div>
+      <div className="proof-hero-line">
+        <span />
+        <span />
+      </div>
+      <div className="proof-ui-grid">
+        <i />
+        <i />
+        <i />
+      </div>
+      <div className="proof-flow-strip">
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
+    </div>
+  </div>
+);
+
+const ShippedWorkCard = ({ item, index }) => (
+  <motion.article
+    className="shipped-card"
+    initial={{ opacity: 0, y: 36 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-10%' }}
+    transition={{ duration: 0.58, delay: index * 0.08 }}
+  >
+    <div className="shipped-index">{item.number}</div>
+    <ProofVisual item={item} />
+    <div className="shipped-copy">
+      <div className="project-meta">
+        <span>{item.eyebrow}</span>
+        <span>{item.type}</span>
+      </div>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+      <strong className="project-metric">{item.impact}</strong>
+      {item.flows && (
+        <div className="proof-flow-cards">
+          {item.flows.map((flow) => (
+            <div key={flow.title}>
+              <span>{flow.title}</span>
+              <p>{flow.copy}</p>
+            </div>
+          ))}
+        </div>
+      )}
+      <div className="project-stack proof-stack">
+        {item.stack.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+      {item.url ? (
+        <a className="proof-link interactive" href={item.url} target="_blank" rel="noreferrer">
+          {item.proof}
+          <span aria-hidden="true">-&gt;</span>
+        </a>
+      ) : (
+        <span className="proof-link proof-link-private">{item.eyebrow}</span>
+      )}
+    </div>
+  </motion.article>
+);
+
 const ProjectPreview = ({ project }) => (
   <div className="case-preview" aria-hidden="true">
     <div className="case-preview-top">
@@ -69,17 +240,13 @@ const Work = () => {
   return (
     <section id="work" className="work-section">
       <div className="work-prelude">
-        <p>Curious? Start with the projects.</p>
-        <a className="work-folder interactive" href="#project-list" aria-label="Jump to project list">
-          <span>Work</span>
-        </a>
-        <p>Or keep scrolling.</p>
-      </div>
-
-      <div className="work-title-row">
-        <span>W</span>
-        <span>o</span>
-        <span>rk</span>
+        <p>Curious?... Check out my</p>
+        <div className="work-word" aria-label="Work">
+          <span>W</span>
+          <WorkbookPreview />
+          <span>rk</span>
+        </div>
+        <p>Or keep scrolling</p>
       </div>
 
       <div className="project-showcase">
@@ -120,16 +287,44 @@ const Work = () => {
         </motion.div>
 
         <div className="project-showcase-copy">
-          <div className="section-eyebrow">Selected Builds</div>
-          <h2>Not just cards. Each project shows the product system behind it.</h2>
+          <div className="section-eyebrow">Shipped Work</div>
+          <h2>Real websites, product platforms, and private app work - not just portfolio cards.</h2>
           <p>
-            The work section now behaves like a product lab: data comes in, APIs move it,
-            models interpret it, and the interface makes it useful.
+            This section is built like a work log: public links where the work is live,
+            private previews where the product cannot be opened, and the exact role I played.
           </p>
         </div>
       </div>
 
-      <div id="project-list" className="project-list">
+      <div id="shipped-work" className="shipped-work-wrap">
+        <div className="section-kicker-row">
+          <div>
+            <div className="section-eyebrow">Proof of Work</div>
+            <h2>Production work people can actually inspect.</h2>
+          </div>
+          <p>
+            Public websites get live links. Private product work gets a production-preview treatment
+            so the proof stays useful without exposing client or platform details.
+          </p>
+        </div>
+        <div className="shipped-list">
+          {shippedWork.map((item, index) => (
+            <ShippedWorkCard item={item} index={index} key={item.title} />
+          ))}
+        </div>
+      </div>
+
+      <div id="project-list" className="project-list technical-builds-list">
+        <div className="section-kicker-row technical-builds-header">
+          <div>
+            <div className="section-eyebrow">Technical Builds</div>
+            <h2>Extra builds that show the systems behind the craft.</h2>
+          </div>
+          <p>
+            These stay as supporting projects: AI workflows, NLP services, and full-stack patterns
+            that explain the technical range behind the shipped work.
+          </p>
+        </div>
         {projects.map((project) => (
           <motion.article
             className="project-row case-panel interactive"

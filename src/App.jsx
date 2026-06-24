@@ -15,7 +15,7 @@ function App() {
     const scrollToHash = () => {
       const hash = window.location.hash;
 
-      if (!hash || hash.length <= 1) {
+      if (loading || !hash || hash.length <= 1) {
         return;
       }
 
@@ -28,7 +28,7 @@ function App() {
     window.addEventListener('hashchange', scrollToHash);
 
     return () => window.removeEventListener('hashchange', scrollToHash);
-  }, []);
+  }, [loading]);
 
   if (loading) {
     return <Preloader onComplete={() => setLoading(false)} />;

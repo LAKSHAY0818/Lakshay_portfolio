@@ -37,6 +37,23 @@ const Nav = () => {
         >
           GH
         </a>
+        <a
+          className="nav-resume interactive"
+          href="/Lakshay_Oberoi_Resume.pdf"
+          download="Lakshay_Oberoi_Resume.pdf"
+          aria-label="Download resume PDF"
+          onClick={() => {
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'resume_download');
+            }
+          }}
+        >
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+            <path d="M5.5 1v6.5M2.5 5l3 3 3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M1.5 9.5h8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+          </svg>
+          CV
+        </a>
       </div>
     </motion.nav>
   );

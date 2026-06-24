@@ -178,6 +178,11 @@ const ShippedWorkCard = ({ item, index }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: '-10%' }}
     transition={{ duration: 0.58, delay: index * 0.08 }}
+    onClick={() => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'project_click', { project_name: item.title });
+      }
+    }}
   >
     <div className="shipped-index">{item.number}</div>
     <ProofVisual item={item} />
@@ -329,6 +334,11 @@ const Work = () => {
           <motion.article
             className="project-row case-panel interactive"
             key={project.title}
+            onClick={() => {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'project_click', { project_name: project.title });
+              }
+            }}
           >
             <div className="project-number">{project.number}</div>
             <ProjectPreview project={project} />

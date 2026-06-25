@@ -33,8 +33,8 @@ const Hero = () => {
           <span>Open to Full-Stack, Frontend, and GenAI Engineering opportunities.</span>
         </motion.div>
 
-        <div className="hero-name-row">
-          <motion.h1
+        <h1 className="hero-name-row">
+          <motion.span
             className="hero-name hero-name-left interactive"
             style={{ x: nameLeftX }}
             onMouseEnter={() => setHoveredName('left')}
@@ -54,9 +54,9 @@ const Hero = () => {
             }}
           >
             Lakshay
-          </motion.h1>
+          </motion.span>
 
-          <motion.h1
+          <motion.span
             className="hero-name hero-name-right interactive"
             style={{ x: nameRightX }}
             onMouseEnter={() => setHoveredName('right')}
@@ -76,8 +76,8 @@ const Hero = () => {
             }}
           >
             Oberoi
-          </motion.h1>
-        </div>
+          </motion.span>
+        </h1>
 
         <motion.div
           className="hero-footer-line"

@@ -54,19 +54,20 @@ const Benefits = () => {
     offset: ['start end', 'start start'],
   });
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 72,
-    damping: 24,
-    mass: 0.28,
+    stiffness: 48,
+    damping: 32,
+    mass: 0.62,
+    restDelta: 0.001,
   });
   
-  const entranceOpacity = useTransform(entranceProgress, [0.1, 0.85], [0, 1]);
-  const headlineOneX = useTransform(smoothProgress, [0, 0.18, 0.34, 0.62], ['-100vw', '3vw', '3vw', '110vw']);
-  const headlineTwoX = useTransform(smoothProgress, [0, 0.18, 0.34, 0.62], ['100vw', '7vw', '7vw', '-110vw']);
-  const headlineY = useTransform(smoothProgress, [0, 0.38, 0.62], ['0vh', '0vh', '-14vh']);
-  const headlineOpacity = useTransform(smoothProgress, [0, 0.18, 0.42, 0.58], [0, 1, 1, 0]);
-  const saveLineY = useTransform(smoothProgress, [0.46, 0.6], ['16vh', '0vh']);
-  const saveLineOpacity = useTransform(smoothProgress, [0.46, 0.58], [0, 1]);
-  const dividerScale = useTransform(smoothProgress, [0.42, 0.54], [0, 1]);
+  const entranceOpacity = useTransform(entranceProgress, [0.08, 0.72], [0, 1]);
+  const headlineOneX = useTransform(smoothProgress, [0, 0.26, 0.5, 0.8], ['-108vw', '0vw', '0vw', '108vw']);
+  const headlineTwoX = useTransform(smoothProgress, [0, 0.26, 0.5, 0.8], ['108vw', '0vw', '0vw', '-108vw']);
+  const headlineY = useTransform(smoothProgress, [0, 0.52, 0.8], ['0vh', '0vh', '-10vh']);
+  const headlineOpacity = useTransform(smoothProgress, [0, 0.14, 0.58, 0.76], [0, 1, 1, 0]);
+  const saveLineY = useTransform(smoothProgress, [0.58, 0.78], ['12vh', '0vh']);
+  const saveLineOpacity = useTransform(smoothProgress, [0.58, 0.72], [0, 1]);
+  const dividerScale = useTransform(smoothProgress, [0.54, 0.72], [0, 1]);
 
   return (
     <section className="cred-section">
